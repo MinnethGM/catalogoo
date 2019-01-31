@@ -9,7 +9,7 @@
 <body>
     <form action="{{route('mascotas.update', $mascota->id)}}" method="post">
     @csrf
-    @mathod('PUT')
+    @method('PUT')
         <label>Especie</label>
         <select name="especie"required>
             <option disable value="">Elige una especie</option>
@@ -22,15 +22,15 @@
         </select>
         <br/><br/>
         <label>Nombre</label>
-        <input  required type="text" name="nombre" placeholder="Nombre de la mascota" value="{{mascota->nombre}}">
+        <input  required type="text" name="nombre" placeholder="Nombre de la mascota" value="{{$mascota->nombre}}">
         <br/><br/>
         <label>Precio</label>
-        <input required type="text" name="precio" placeholder="Precio de la mascota">
+        <input required type="text" name="precio" placeholder="Precio de la mascota" value="{{$mascota->precio}}">
         <br/><br/>
         <label>Fecha de nacimiento</label>
-        <input required type="date" name="nacimiento">
+        <input required type="date" name="nacimiento" value="{{$mascota->nacimiento}}">
         <br/><br/>
-        <button required type="submit">Crear nueva mascota</button>
+        <button required type="submit">Actualizar Mascota</button>
     </form>
 </body>
 </html>
