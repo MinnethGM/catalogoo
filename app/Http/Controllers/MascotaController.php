@@ -140,7 +140,13 @@ class MascotaController extends Controller
     {
         $mascota =
             Mascota::find($id);
-        $mascota->delete();
-        return redirect()->route('mascotas.index');
+        if($mascota->delete())
+        {
+            return redirect()->route('mascotas.index')->
+            with('exito','Mascota eliminada');
+        }
+
+        return redirect()->route('mascotas.index')->
+        with('error','No se puede eliminar mascota');;
     }
 }
